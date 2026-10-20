@@ -44,11 +44,25 @@ python -m http.server 8000
 2. In Vercel choose **Add New -> Project**, import the repository (preset: *Other*) and click **Deploy**. No build command is needed.
 3. Every later `git push` to `main` redeploys automatically.
 
+## Pages
+
+- `/` - landing page
+- `/features` - the nine planned ways to take part
+- `/rewards-wallet` - units, wallet entries, reward states, withdrawal lifecycle
+- `/help` - searchable help center
+- `/about` - principles, roadmap, data-first approach
+- `/dashboard/` - user analytics prototype built on SIMULATED data (Task 01)
+
 ## Project structure
 
 ```
 .
-|-- index.html   # the whole page (HTML + CSS + JS)
+|-- index.html
+|-- features.html, rewards-wallet.html, help.html, about.html
+|-- dashboard/index.html   # analytics prototype (simulated data)
+|-- assets/styles.css      # shared styles
+|-- 404.html, robots.txt, sitemap.xml, site.webmanifest, og-image.png
+|-- vercel.json            # clean URLs and security headers
 `-- README.md
 ```
 
