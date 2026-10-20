@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://veloop-rewards-landing-page-bay.vercel.app/sitemap.xml
