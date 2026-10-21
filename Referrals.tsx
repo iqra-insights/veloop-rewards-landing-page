@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { Users, Copy, Check, Gift, ArrowRight, Sparkles, ShieldCheck } from 'lucide-react';
-import { useStore } from '../store';
-import { number } from '../model';
-import { Badge, SectionTitle, Modal } from '../components/ui';
+import { useStore } from './store';
+import { number } from './model';
+import { Badge, SectionTitle, Modal } from './ui';
 export default function Referrals() {
   const { state, dispatch, notify } = useStore();
   const [manual, setManual] = useState(false);

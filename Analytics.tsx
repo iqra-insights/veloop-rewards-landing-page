@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { Download, BarChart3, Info, ArrowUpRight } from 'lucide-react';
-import { useStore } from '../store';
-import { earned, number, csv, download, tasks } from '../model';
-import RewardChart, { activitySeries } from '../components/Chart';
-import { Badge, SectionTitle } from '../components/ui';
+import { useStore } from './store';
+import { earned, number, csv, download, tasks } from './model';
+import RewardChart, { activitySeries } from './Chart';
+import { Badge, SectionTitle } from './ui';
 export default function Analytics() {
   const { state, notify } = useStore();
   const [period, setPeriod] = useState(7);

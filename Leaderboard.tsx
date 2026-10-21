@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { Trophy, Medal, Sparkles } from 'lucide-react';
-import { useStore } from '../store';
-import { Badge } from '../components/ui';
-import { number } from '../model';
+import { useStore } from './store';
+import { Badge } from './ui';
+import { number } from './model';
 export default function Leaderboard() {
   const { state } = useStore();
   const [view, setView] = useState('All explorers');

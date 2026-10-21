@@ -9,7 +9,7 @@ import {
   BarChart,
   Bar,
 } from 'recharts';
-import type { DemoState } from '../model';
+import type { DemoState } from './model';
 export function activitySeries(state: DemoState, days: number) {
   const result = [];
   for (let n = days - 1; n >= 0; n--) {

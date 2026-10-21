@@ -10,7 +10,7 @@ import {
   streak,
   tasks,
   type DemoState,
-} from '../src/model';
+} from './model';
 const at = '2026-10-21T12:00:00Z';
 test('pending sample rewards are excluded from spendable balance', () => {
   const s = initialState();

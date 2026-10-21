@@ -8,8 +8,8 @@ import {
   Check,
   CircleHelp,
 } from 'lucide-react';
-import { Badge, Empty, SectionTitle } from '../components/ui';
-import { useStore } from '../store';
+import { Badge, Empty, SectionTitle } from './ui';
+import { useStore } from './store';
 const faqs = [
   {
     category: 'Getting started',

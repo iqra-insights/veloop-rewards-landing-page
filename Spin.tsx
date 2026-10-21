@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
 import { Gift, Sparkles, ShieldCheck, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { useStore } from '../store';
-import { localDay } from '../model';
-import { Badge } from '../components/ui';
+import { useStore } from './store';
+import { localDay } from './model';
+import { Badge } from './ui';
 const prizes = [25, 50, 75, 100, 150, 200];
 export default function Spin() {
   const { state, dispatch, notify } = useStore();

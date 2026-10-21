@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 import { Target, Trophy, Check, ArrowRight, Lock, Flame, Sparkles } from 'lucide-react';
-import { useStore } from '../store';
-import { milestones, streak } from '../model';
-import { Badge, SectionTitle } from '../components/ui';
+import { useStore } from './store';
+import { milestones, streak } from './model';
+import { Badge, SectionTitle } from './ui';
 export default function Missions() {
   const { state, dispatch, notify } = useStore();
   const level = Math.floor(state.xp / 250) + 1;

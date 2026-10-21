@@ -1,8 +1,8 @@
 import { useEffect, useState, type CSSProperties } from 'react';
 import { Zap, ArrowRight, Check, ShieldCheck, Clock3 } from 'lucide-react';
-import { Badge, SectionTitle } from '../components/ui';
-import { useStore } from '../store';
-import { localDay } from '../model';
+import { Badge, SectionTitle } from './ui';
+import { useStore } from './store';
+import { localDay } from './model';
 export default function Session() {
   const { state, dispatch, notify } = useStore();
   const [now, setNow] = useState(Date.now());

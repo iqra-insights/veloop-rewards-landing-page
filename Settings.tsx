@@ -11,9 +11,9 @@ import {
   Zap,
   ArrowUpRight,
 } from 'lucide-react';
-import { useStore } from '../store';
-import { download } from '../model';
-import { Modal, SectionTitle, Badge } from '../components/ui';
+import { useStore } from './store';
+import { download } from './model';
+import { Modal, SectionTitle, Badge } from './ui';
 export default function Settings() {
   const { state, dispatch, notify } = useStore();
   const [name, setName] = useState(state.profile.name);

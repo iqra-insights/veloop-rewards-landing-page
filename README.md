@@ -4,6 +4,10 @@ A complete, responsive **frontend prototype** built with React, TypeScript and V
 
 **No production backend is connected.** There is no real authentication, advertising, referral attribution, cryptocurrency mining, email delivery or payment processing. All other explorers, rewards and transactions are fictional. Demo progress is stored only in the current browser.
 
+## Project layout
+
+All source files live in the repository root (flat layout, no `src/` folder) so the project can be maintained entirely through the GitHub web uploader. Components are `Layout.tsx`, `ui.tsx` and `Chart.tsx`; pages are the remaining `*.tsx` files; domain logic is in `model.ts` and `store.tsx`; unit tests are in `model.test.ts` and the browser journey is `browser.smoke.mjs`.
+
 ## Start locally
 
 Use Node.js **22.12+** (Node 24 LTS is also supported).

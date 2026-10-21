@@ -22,8 +22,8 @@ import {
   CircleHelp,
   type LucideIcon,
 } from 'lucide-react';
-import { number, tasks, type Task } from '../model';
-import { useStore } from '../store';
+import { number, tasks, type Task } from './model';
+import { useStore } from './store';
 const icons: Record<string, LucideIcon> = {
   Gift,
   Compass,

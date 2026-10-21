@@ -24,8 +24,8 @@ import {
   Zap,
 } from 'lucide-react';
 import { Logo, Modal } from './ui';
-import { useStore } from '../store';
-import { number } from '../model';
+import { useStore } from './store';
+import { number } from './model';
 const nav = [
   { label: 'Overview', path: '/app', icon: LayoutDashboard },
   { label: 'Explore & earn', path: '/app/earn', icon: Compass },

@@ -12,11 +12,11 @@ import {
   ChevronRight,
   Clock3,
 } from 'lucide-react';
-import { useStore } from '../store';
-import { balance, number, pending, tasks, localDay, streak, type Task } from '../model';
-import { Badge, SectionTitle, TaskCard, TaskDialog } from '../components/ui';
-import { activitySeries } from '../components/Chart';
-const RewardChart = lazy(() => import('../components/Chart'));
+import { useStore } from './store';
+import { balance, number, pending, tasks, localDay, streak, type Task } from './model';
+import { Badge, SectionTitle, TaskCard, TaskDialog } from './ui';
+import { activitySeries } from './Chart';
+const RewardChart = lazy(() => import('./Chart'));
 export default function Overview() {
   const { state, dispatch, notify } = useStore();
   const [task, setTask] = useState<Task | null>(null);

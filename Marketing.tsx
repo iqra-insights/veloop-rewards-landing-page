@@ -20,9 +20,9 @@ import {
   Zap,
   Mail,
 } from 'lucide-react';
-import { Logo, Badge, Modal, Icon } from '../components/ui';
-import { tasks } from '../model';
-import { useStore } from '../store';
+import { Logo, Badge, Modal, Icon } from './ui';
+import { tasks } from './model';
+import { useStore } from './store';
 function PublicHeader() {
   const [menu, setMenu] = useState(false);
   const [entry, setEntry] = useState(false);

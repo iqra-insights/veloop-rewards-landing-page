@@ -1,6 +1,6 @@
 # Third-party notices
 
-This project uses the following open-source dependencies. Preserve their notices when redistributing compiled output. Full direct dependency/font license texts are included in `licenses/`; installed dependencies may include additional transitive notices.
+This project uses the following open-source dependencies. Preserve their notices when redistributing compiled output. Full direct dependency/font license texts are included in `LICENSES.txt`; installed dependencies may include additional transitive notices.
 
 | Dependency            | License                   |
 | --------------------- | ------------------------- |

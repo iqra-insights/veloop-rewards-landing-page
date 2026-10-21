@@ -1,20 +1,20 @@
 import { lazy, Suspense, useEffect } from 'react';
 import { Routes, Route, Navigate, Link, useLocation } from 'react-router-dom';
 import { ArrowLeft, Check, Sparkles } from 'lucide-react';
-import Layout from './components/Layout';
-import { Landing, PublicPage } from './pages/Marketing';
+import Layout from './Layout';
+import { Landing, PublicPage } from './Marketing';
 import { useStore } from './store';
-const Overview = lazy(() => import('./pages/Overview'));
-const Session = lazy(() => import('./pages/Session'));
-const Earn = lazy(() => import('./pages/Earn'));
-const Wallet = lazy(() => import('./pages/Wallet'));
-const Missions = lazy(() => import('./pages/Missions'));
-const Spin = lazy(() => import('./pages/Spin'));
-const Referrals = lazy(() => import('./pages/Referrals'));
-const Analytics = lazy(() => import('./pages/Analytics'));
-const Leaderboard = lazy(() => import('./pages/Leaderboard'));
-const Help = lazy(() => import('./pages/Help'));
-const Settings = lazy(() => import('./pages/Settings'));
+const Overview = lazy(() => import('./Overview'));
+const Session = lazy(() => import('./Session'));
+const Earn = lazy(() => import('./Earn'));
+const Wallet = lazy(() => import('./Wallet'));
+const Missions = lazy(() => import('./Missions'));
+const Spin = lazy(() => import('./Spin'));
+const Referrals = lazy(() => import('./Referrals'));
+const Analytics = lazy(() => import('./Analytics'));
+const Leaderboard = lazy(() => import('./Leaderboard'));
+const Help = lazy(() => import('./Help'));
+const Settings = lazy(() => import('./Settings'));
 function PageEffects() {
   const location = useLocation();
   useEffect(() => {

@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { Search, SlidersHorizontal, Sparkles, Check } from 'lucide-react';
-import { tasks, type Task } from '../model';
-import { useStore } from '../store';
-import { TaskCard, TaskDialog, Empty, Badge } from '../components/ui';
+import { tasks, type Task } from './model';
+import { useStore } from './store';
+import { TaskCard, TaskDialog, Empty, Badge } from './ui';
 export default function Earn() {
   const { state } = useStore();
   const [query, setQuery] = useState('');

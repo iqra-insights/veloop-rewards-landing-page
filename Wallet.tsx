@@ -12,9 +12,9 @@ import {
   Info,
   Check,
 } from 'lucide-react';
-import { useStore } from '../store';
-import { balance, earned, pending, number, download, csv, type Transaction } from '../model';
-import { Badge, Empty, Modal, SectionTitle } from '../components/ui';
+import { useStore } from './store';
+import { balance, earned, pending, number, download, csv, type Transaction } from './model';
+import { Badge, Empty, Modal, SectionTitle } from './ui';
 export default function Wallet() {
   const { state, dispatch, notify } = useStore();
   const [redeem, setRedeem] = useState(false);
