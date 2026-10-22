@@ -1,125 +1,82 @@
-# VELOOP Rewards — React experience
+# VELOOP Rewards - React Prototype
 
-A complete, responsive **frontend prototype** built with React, TypeScript and Vite. It expands the original VELOOP landing page into a public website and interactive member workspace, retaining honest simulated-data labelling throughout.
+![React](https://img.shields.io/badge/React-19-61dafb) ![TypeScript](https://img.shields.io/badge/TypeScript-strict-3178c6) ![Vite](https://img.shields.io/badge/Vite-7-646cff) ![Data](https://img.shields.io/badge/data-simulated-orange) ![Deploy](https://img.shields.io/badge/deployed%20on-Vercel-black)
 
-**No production backend is connected.** There is no real authentication, advertising, referral attribution, cryptocurrency mining, email delivery or payment processing. All other explorers, rewards and transactions are fictional. Demo progress is stored only in the current browser.
+**Live demo:** https://veloop-rewards-landing-page-bay.vercel.app/
 
-## Project layout
+A responsive frontend prototype for **VELOOP Rewards**, a rewards and engagement platform that is still in development. It combines a public website (landing page, features, wallet explainer, about, help, privacy and demo terms) with an interactive member workspace: wallet ledger, daily check-in, tasks, missions, lucky spin, referrals, leaderboard and an analytics dashboard.
 
-All source files live in the repository root (flat layout, no `src/` folder) so the project can be maintained entirely through the GitHub web uploader. Components are `Layout.tsx`, `ui.tsx` and `Chart.tsx`; pages are the remaining `*.tsx` files; domain logic is in `model.ts` and `store.tsx`; unit tests are in `model.test.ts` and the browser journey is `browser.smoke.mjs`.
+> **Everything is simulated.** No production backend is connected: no real authentication, advertising, referral attribution, payments, e-mail delivery or payouts. Balances, rewards and leaderboard entries are fictional. Demo progress is stored only in the current browser.
 
-## Start locally
+## Highlights
 
-Use Node.js **22.12+** (Node 24 LTS is also supported).
+- **Responsive and accessible:** mobile navigation, keyboard-friendly controls, reduced-motion support, dark and light appearance.
+- **Ledger-based wallet:** balances are derived from ledger entries; pending rewards never count as spendable; redemption requests reserve and can release points.
+- **Habit mechanics:** daily check-in with streaks, timed reward session, missions with XP, levels and badges, a once-a-day lucky spin.
+- **Analytics dashboard:** 7/30-day charts, accessible chart table, source breakdown, metric definitions and CSV export.
+- **Honest by design:** no invented user counts, ratings, testimonials or earning promises; every sample value is labelled.
+- **Tested domain logic:** unit tests for the ledger, duplicate claims, streak dates and CSV escaping, plus a browser smoke test (see `VALIDATION.md`).
+
+## Tech stack
+
+React 19, TypeScript (strict), Vite 7, React Router, Recharts, Lucide icons. Fonts (Manrope, DM Serif Display) are bundled locally; no CDN and no third-party analytics.
+
+## Run locally
+
+Requires Node.js 22.12 or newer.
 
 ```bash
 npm ci
-npm run dev
+npm run dev        # development server
+npm run build      # type check + production bundle in dist/
+npm run preview    # serve the production bundle
+npm test           # domain and ledger tests
+npm run test:browser   # end-to-end journey and accessibility audit
 ```
 
-Open the URL printed by Vite. Use **Find your loop** to open the member experience. The optional **Enter demo** flow accepts a sample display name, without credentials.
-
-```bash
-npm run build          # TypeScript check + production bundle in dist/
-npm run preview        # Serve production bundle
-npm test               # Domain and ledger tests
-npm run test:browser   # End-to-end journey, responsive routes, accessibility audit
-```
-
-Before running browser tests on a new machine, install the test browser:
-
-```bash
-npx playwright install chromium
-```
-
-`BROWSER_EXECUTABLE` optionally points to an existing Chromium binary. `QA_OUTPUT` changes the screenshot/audit destination (default `/tmp/veloop-qa`). Tests start and stop their own Vite server on 127.0.0.1:5188. Browser test artifacts are temporary and are not part of the application.
-
-## Included experiences
-
-| Area                   | Functionality                                                                                                                       |
-| ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| Public website         | Responsive landing page, product features, wallet explainer, about, help, privacy and demo terms                                    |
-| Overview               | Current virtual balance, pending rewards, task progress, streak, dynamic reward chart and recommendations                           |
-| Explore & earn         | Search, categories, sorting, available-only filter, activity details and one-time demo task completion                              |
-| Daily check-in         | 50 virtual VEs and 25 XP, once per local calendar day; consecutive-day streak calculation                                           |
-| Reward session         | A 60-second saved timer, cross-page/reload continuation, one-time reward claim and daily session limit; no crypto mining            |
-| Missions               | Completion milestones, one-time bonus claims, XP, levels and unlockable badges                                                      |
-| Lucky spin             | Six random virtual outcomes, one free spin per local day, reduced-motion support and wallet credit                                  |
-| Wallet                 | Ledger-derived balances, pending states, search, status filters, pagination, details and CSV export                                 |
-| Demo redemption        | Whole-VEs input validation, available-balance checks, reservation, request history and cancellation with point release              |
-| Referrals              | Clipboard invite link, manual fallback, bounded fictional activations and corresponding virtual credits                             |
-| Leaderboard            | Clearly fictional explorers ranked by XP, with the local profile's position updated dynamically                                     |
-| Analytics              | Ledger-derived 7/30-day charts, area/bar toggle, accessible chart table, source breakdown, definitions, local events and CSV export |
-| Help                   | Searchable/category-filtered FAQ and local-only support request examples                                                            |
-| Settings               | Demo profile, goal, dark/light appearance, motion, sample email preference, JSON export and confirmed reset                         |
-| Local waitlist example | Browser validation and explicit local-storage consent; no subscription or email delivery                                            |
-| Navigation             | Member/public routing, responsive mobile navigation, page search, update dialog, profile menu and not-found page                    |
-
-Daily dates follow the device's local calendar. Sample transaction timestamps are ISO timestamps and are grouped by local day for charts. The welcome ledger contains 1,250 credited virtual VEs plus a separate 120 pending VEs; pending credits never increase spendable balance.
+Before the browser test on a new machine: `npx playwright install chromium`.
 
 ## Routes
 
-Public: `/`, `/features`, `/rewards-wallet`, `/about`, `/help`, `/privacy`, `/terms`.
+| Public | Member workspace |
+| --- | --- |
+| `/`, `/features`, `/rewards-wallet`, `/about`, `/help`, `/privacy`, `/terms` | `/app`, `/app/earn`, `/app/wallet`, `/app/session`, `/app/missions`, `/app/spin`, `/app/referrals`, `/app/leaderboard`, `/app/analytics`, `/app/help`, `/app/settings` |
 
-Member: `/app`, `/app/earn`, `/app/wallet`, `/app/session`, `/app/missions`, `/app/spin`, `/app/referrals`, `/app/leaderboard`, `/app/analytics`, `/app/help`, `/app/settings`.
+`/dashboard` redirects to `/app/analytics`.
 
-The original broken `/dashboard` link now redirects to `/app/analytics`.
+## Project layout
 
-## Single-file preview
-
-```bash
-npm run build:standalone
-```
-
-`standalone/index.html` embeds React, styles, charts and fonts. It uses hash routing, so it can be opened directly as a file and navigated without a server. Its browser storage is separate from a hosted deployment and depends on the browser's file-storage policy. The normal production build uses clean browser URLs.
-
-## Deploy to Vercel
-
-Import this project, select **Vite**, and use `npm run build` with output directory `dist`. `vercel.json` includes route rewrites and security headers. Verify that direct navigation to `/app/wallet`, `/features` and `/dashboard` works after deployment.
-
-This package does **not** modify or replace the existing GitHub repository or Vercel deployment. Review changes in a branch before replacing the existing site. A custom domain should be configured before adding absolute canonical URLs or social images; no deployment domain is invented in this source.
-
-## Project structure
+The repository uses a flat layout (source files in the root) so it can be maintained entirely through the GitHub web interface.
 
 ```text
-src/
-  App.tsx                 Routes, lazy page loading and feedback
-  main.tsx                React setup and browser/hash routing
-  model.ts                Typed state, reducer, ledger rules and export utilities
-  store.tsx               Shared state, persistence, preferences and toast messages
-  styles.css              Responsive design system, dark appearance and reduced motion
-  components/
-    Layout.tsx            Member navigation, search, profile and updates
-    Chart.tsx             Reward aggregation and responsive charts
-    ui.tsx                Shared cards, dialogs, badges and task interaction
-  pages/                  Public website and individual member screens
-tests/
-  model.test.ts           Ledger, duplicate-claim, recovery and session invariants
-  browser.smoke.mjs        Browser journeys, route layouts and axe audits
-vite.config.ts             Normal multi-file production build
-vite.standalone.config.ts  Embedded single-file preview build
-vercel.json                SPA rewrites and deployment headers
+.
+|-- index.html, main.tsx, App.tsx        entry point and routes
+|-- Layout.tsx, ui.tsx, Chart.tsx        shared components
+|-- Overview.tsx, Earn.tsx, Wallet.tsx, Missions.tsx, Session.tsx,
+|   Spin.tsx, Referrals.tsx, Leaderboard.tsx, Analytics.tsx,
+|   Help.tsx, Settings.tsx, Marketing.tsx   pages
+|-- model.ts, store.tsx                  state, ledger rules, persistence
+|-- model.test.ts, browser.smoke.mjs     tests
+|-- styles.css                           design system
+|-- public/                              robots.txt, sitemap.xml, manifest, favicon, og-image
+|-- vite.config.ts, vite.standalone.config.ts, tsconfig.json
+|-- vercel.json                          SPA rewrites and security headers
+`-- README.md, VALIDATION.md, THIRD_PARTY_NOTICES.md, LICENSES.txt
 ```
 
-## Production integration handoff
+## Deploy
 
-Treat this frontend as the interaction/design layer. Before accepting real users:
+Import the repository in Vercel, choose the **Vite** preset, build command `npm run build`, output directory `dist`. `vercel.json` provides SPA rewrites and security headers. After deployment, check that direct links such as `/app/wallet`, `/features` and `/dashboard` open correctly.
 
-1. Replace demo entry with managed authentication and server-verified sessions. Enforce authorization for every profile and wallet query. LocalStorage is not an authentication boundary.
-2. Move reward and redemption mutations to an authoritative backend. Use idempotency keys, transactional reservations, unique claim constraints, a ledger and verified partner callbacks. A client-side timer, spin or button must never award real funds.
-3. Define product-approved eligibility, limits, conversion rules and reversal behavior. Gems and Tokens have no assigned value or conversion in this demo.
-4. Use backend-issued referral codes and verified qualifying events; do not pay for client-simulated activations.
-5. Connect waitlist and support forms to approved services with server validation, abuse controls, consent records and retention rules. Update the local-only copy only when integration is working.
-6. Implement governed event collection from the original analytics blueprint. Keep unnecessary PII out of analytics; supply versioned contracts, UTC event timestamps, identity rules and deduplication.
-7. Add real monitoring, observability, accessibility review, privacy/terms and payment-provider integration before launch.
+## Before real users
 
-The demo is intentionally client-editable and is not suitable for real financial balances. It does not synchronize concurrent tabs/devices; refreshing uses the latest state saved by this browser. CSV exports escape fields and neutralize text formula prefixes.
+This is the interaction and design layer, not a production system. A real launch needs managed authentication, a server-side ledger with idempotent reward and redemption mutations, approved reward and conversion rules, backend-issued referral codes, governed event collection (UTC timestamps, deduplication, no unnecessary personal data), real privacy and terms text, and monitoring. LocalStorage is not a security boundary.
 
-## Attribution and dependencies
+## Related work
 
-Inspired by Iqra Siddiqui's original projects:
+- Analytics blueprint for VELOOP (event tracking plan, data dictionary, KPI catalogue, data-quality audit): [veloop-rewards-analytics-blueprint](https://github.com/iqra-insights/veloop-rewards-analytics-blueprint) (private; access on request).
+- Official VELOOP site: https://www.velooprewards.in
 
-- https://github.com/iqra-insights/veloop-rewards-landing-page
-- https://github.com/iqra-insights/veloop-rewards-analytics-blueprint
+## Author
 
-Uses React, React Router, Lucide icons, Recharts, Manrope and DM Serif Display. Fonts are bundled locally; no font CDN or analytics service is required. Dependency licenses are provided in `licenses/` and by the installed packages. See `THIRD_PARTY_NOTICES.md`.
+**Iqra Siddiqui** - Data Analyst Intern, VELOOP Rewards (ID: VLRINT202601918) - [@iqra-insights](https://github.com/iqra-insights)
