@@ -4,9 +4,9 @@
 
 **Live demo:** https://veloop-rewards-landing-page-bay.vercel.app/
 
-A responsive frontend prototype for **VELOOP Rewards**, a rewards and engagement platform that is still in development. It combines a public website (landing page, features, wallet explainer, about, help, privacy and demo terms) with an interactive member workspace: wallet ledger, daily check-in, tasks, missions, lucky spin, referrals, leaderboard and an analytics dashboard.
+A responsive frontend prototype for VELOOP Rewards, a rewards and engagement platform that is still in development. It combines a public website (landing page, features, wallet explainer, about, help, privacy and demo terms) with an interactive member workspace: wallet ledger, daily check-in, tasks, missions, lucky spin, referrals, leaderboard and an analytics dashboard.
 
-> **Everything is simulated.** No production backend is connected: no real authentication, advertising, referral attribution, payments, e-mail delivery or payouts. Balances, rewards and leaderboard entries are fictional. Demo progress is stored only in the current browser.
+**Everything is simulated.** No production backend is connected: no real authentication, advertising, referral attribution, payments, e-mail delivery or payouts. Balances, rewards and leaderboard entries are fictional. Demo progress is stored only in the current browser.
 
 ## Highlights
 
@@ -39,7 +39,7 @@ Before the browser test on a new machine: `npx playwright install chromium`.
 ## Routes
 
 | Public | Member workspace |
-| --- | --- |
+|--------|------------------|
 | `/`, `/features`, `/rewards-wallet`, `/about`, `/help`, `/privacy`, `/terms` | `/app`, `/app/earn`, `/app/wallet`, `/app/session`, `/app/missions`, `/app/spin`, `/app/referrals`, `/app/leaderboard`, `/app/analytics`, `/app/help`, `/app/settings` |
 
 `/dashboard` redirects to `/app/analytics`.
@@ -48,7 +48,7 @@ Before the browser test on a new machine: `npx playwright install chromium`.
 
 The repository uses a flat layout (source files in the root) so it can be maintained entirely through the GitHub web interface.
 
-```text
+```
 .
 |-- index.html, main.tsx, App.tsx        entry point and routes
 |-- Layout.tsx, ui.tsx, Chart.tsx        shared components
@@ -66,7 +66,7 @@ The repository uses a flat layout (source files in the root) so it can be mainta
 
 ## Deploy
 
-Import the repository in Vercel, choose the **Vite** preset, build command `npm run build`, output directory `dist`. `vercel.json` provides SPA rewrites and security headers. After deployment, check that direct links such as `/app/wallet`, `/features` and `/dashboard` open correctly.
+Import the repository in Vercel, choose the Vite preset, build command `npm run build`, output directory `dist`. `vercel.json` provides SPA rewrites and security headers. After deployment, check that direct links such as `/app/wallet`, `/features` and `/dashboard` open correctly.
 
 ## Before real users
 
@@ -74,9 +74,9 @@ This is the interaction and design layer, not a production system. A real launch
 
 ## Related work
 
-- Analytics blueprint for VELOOP (event tracking plan, data dictionary, KPI catalogue, data-quality audit): [veloop-rewards-analytics-blueprint](https://github.com/iqra-insights/veloop-rewards-analytics-blueprint) (private; access on request).
+- Analytics blueprint for VELOOP (event tracking plan, data dictionary, KPI catalogue, data-quality audit): [veloop-rewards-analytics-blueprint](https://github.com/iqra-insights/veloop-rewards-analytics-blueprint) (public).
 - Official VELOOP site: https://www.velooprewards.in
 
 ## Author
 
-**Iqra Siddiqui** - Data Analyst Intern, VELOOP Rewards (ID: VLRINT202601918) - [@iqra-insights](https://github.com/iqra-insights)
+Iqra Siddiqui - Data Analyst Intern, VELOOP Rewards - [@iqra-insights](https://github.com/iqra-insights)
